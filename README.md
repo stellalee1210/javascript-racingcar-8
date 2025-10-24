@@ -8,12 +8,14 @@
 
 ### Controller
 
-- [ ] gameController: 게임 진행
+- [x] gameController: 게임 진행하는 파일 생성
 
 ### View
 
-- [ ] getInput : Console에서 사용자가 입력한 자동차 이름들과 게임 진행 횟수를 받음
-- [ ] printResult : 진행한 게임 결과를 형식에 맞게 Console에 출력
+- [x] 입력 : Console에서 사용자가 입력한 자동차 이름들과 게임 진행 횟수를 받음
+  - [x] getCarInput
+  - [x] getCountInput
+- [ ] 출력: 진행한 게임 결과를 형식에 맞게 Console에 출력
 
 ### Model
 
