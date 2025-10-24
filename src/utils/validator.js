@@ -4,6 +4,11 @@ export class Validator {
     return false;
   }
 
+  isSinglePlay(input) {
+    if (input.includes(",")) return false;
+    return true;
+  }
+
   isCarNameUnderLimit(carName) {
     if (carName.length > 5)
       throw Error(
