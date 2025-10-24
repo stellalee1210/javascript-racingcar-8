@@ -1,6 +1,18 @@
+import {
+  CarNameEmptyError,
+  CountEmptyError,
+  CarNameLengthError,
+  CountError,
+} from "../error/Errors.js";
+import { ERROR_MESSAGES } from "../constants/messages.js";
+
 export class Validator {
-  isEmpty(input) {
-    if (input.length === 0) throw Error("[ERROR] 칸이 비어있습니다.");
+  isEmpty(input, inputType = "") {
+    if (input.length === 0 && inputType === "car")
+      throw new CarNameEmptyError(ERROR_MESSAGES.CAR_NAME_EMPTY);
+    if (input.length === 0 && inputType === "count")
+      throw new CountEmptyError(ERROR_MESSAGES.COUNT_EMPTY);
+
     return false;
   }
 
@@ -11,17 +23,12 @@ export class Validator {
 
   isCarNameUnderLimit(carName) {
     if (carName.length > 5)
-      throw Error(
-        `[ERROR] 자동차 이름 '${carName}'이(가) 제한 글자 수를 넘어섰습니다. (제한 글자 수 : 5글자)`
-      );
+      throw new CarNameLengthError(ERROR_MESSAGES.CAR_NAME_LENGTH);
     return true;
   }
 
   isCountNumber(count) {
-    if (isNaN(Number(count)))
-      throw Error(
-        "[ERROR] 입력하신 게임 진행 횟수는 숫자가 아닙니다. 숫자로 다시 입력해주세요."
-      );
+    if (isNaN(Number(count))) throw new CountError(ERROR_MESSAGES.DELIMITER);
     return true;
   }
 }

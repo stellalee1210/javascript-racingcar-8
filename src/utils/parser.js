@@ -1,8 +1,11 @@
+import { DelimiterError } from "../error/Errors.js";
+import { ERROR_MESSAGES } from "../constants/messages.js";
+
 export const parseInputToArray = (rawCarNameInput) => {
   try {
     const carNames = rawCarNameInput.split(",");
     return carNames.map((v) => v.trim());
   } catch (error) {
-    throw Error("[ERROR] 자동차 이름 구분자가 잘못 들어가있습니다.");
+    throw new DelimiterError(ERROR_MESSAGES.DelimiterError);
   }
 };
