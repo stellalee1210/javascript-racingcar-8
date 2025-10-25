@@ -5,7 +5,7 @@ import {
   printProgress,
   printWinners,
 } from "../view/io.js";
-import { Validator } from "../utils/Validator.js";
+import { Validator } from "../utils/validator.js";
 import { parseInputToArray } from "../utils/parser.js";
 import { AppError } from "../error/AppError.js";
 import { ERROR_MESSAGES } from "../constants/messages.js";
