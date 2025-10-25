@@ -13,4 +13,8 @@ export class Car {
   addMove() {
     this.#moves += 1;
   }
+
+  getCarName() {
+    return this.#carName;
+  }
 }

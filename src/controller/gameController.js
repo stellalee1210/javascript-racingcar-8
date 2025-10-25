@@ -6,6 +6,7 @@ import { ERROR_MESSAGES } from "../constants/messages.js";
 import { UnknownError } from "../error/Errors.js";
 import { Car } from "../model/Car.js";
 import { Console } from "@woowacourse/mission-utils";
+import { Game } from "../model/Game.js";
 
 export const playGame = async () => {
   try {
@@ -37,6 +38,7 @@ export const playGame = async () => {
 
 const startGame = (carNames) => {
   const playerCars = initializeCars(carNames);
+  const game = new Game(playerCars);
 };
 
 const initializeCars = (carNames) => {
