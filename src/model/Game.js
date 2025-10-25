@@ -8,9 +8,11 @@ export class Game {
     this.#winner = [];
   }
 
-  makeMove(car) {
-    const randomNumber = Random.pickNumberInRange(0, 9);
-    if (randomNumber >= 4) this.#saveMove(car);
+  makeMove() {
+    this.#carList.forEach((car) => {
+      const randomNumber = Random.pickNumberInRange(0, 9);
+      if (randomNumber >= 4) this.#saveMove(car);
+    });
   }
 
   #saveMove(car) {
@@ -20,7 +22,7 @@ export class Game {
   getWinner() {
     let maxCount = 0;
     this.#carList.forEach((car) => {
-      const moveCount = car.getMoveCounts();
+      const moveCount = car.getMoveCount();
       const carName = car.getCarName();
       if (moveCount === maxCount) {
         this.#winner.push(carName);
@@ -29,5 +31,6 @@ export class Game {
         this.#winner = [carName];
       }
     });
+    return this.#winner;
   }
 }

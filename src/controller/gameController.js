@@ -1,11 +1,16 @@
-import { getCarInput, getCountInput } from "../view/io.js";
+import {
+  getCarInput,
+  getCountInput,
+  printResultTitle,
+  printProgress,
+  printWinners,
+} from "../view/io.js";
 import { Validator } from "../utils/Validator.js";
 import { parseInputToArray } from "../utils/parser.js";
 import { AppError } from "../error/AppError.js";
 import { ERROR_MESSAGES } from "../constants/messages.js";
 import { UnknownError } from "../error/Errors.js";
 import { Car } from "../model/Car.js";
-import { Console } from "@woowacourse/mission-utils";
 import { Game } from "../model/Game.js";
 
 export const playGame = async () => {
@@ -27,8 +32,7 @@ export const playGame = async () => {
       validator.isCountNumber(countInput)
     ) {
       //게임시작 호출
-      Console.print("start");
-      startGame(carNames);
+      startGame(carNames, countInput);
     }
   } catch (error) {
     if (error instanceof AppError) throw Error(error.message);
@@ -36,14 +40,23 @@ export const playGame = async () => {
   }
 };
 
-const startGame = (carNames) => {
-  const playerCars = initializeCars(carNames);
+const startGame = (carList, count) => {
+  const playerCars = initializeCars(carList);
   const game = new Game(playerCars);
+  printResultTitle();
+
+  for (let i = 0; i < count; i++) {
+    game.makeMove();
+    printProgress(playerCars);
+  }
+
+  const winners = game.getWinner();
+  printWinners(winners);
 };
 
-const initializeCars = (carNames) => {
+const initializeCars = (carList) => {
   const cars = [];
-  carNames.forEach((carName) => {
+  carList.forEach((carName) => {
     const car = new Car(carName);
     cars.push(car);
   });
