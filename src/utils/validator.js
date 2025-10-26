@@ -7,12 +7,15 @@ import {
 import { ERROR_MESSAGES } from "../constants/messages.js";
 
 export class Validator {
-  isEmpty(input, inputType = "") {
-    if (input.length === 0 && inputType === "car")
+  isCarInputEmpty(input) {
+    if (input === undefined || input === null || input.length === 0)
       throw new CarNameEmptyError(ERROR_MESSAGES.CAR_NAME_EMPTY);
-    if (input.length === 0 && inputType === "count")
-      throw new CountEmptyError(ERROR_MESSAGES.COUNT_EMPTY);
+    return false;
+  }
 
+  isCountEmpty(input) {
+    if (input === undefined || input === null || input.length === 0)
+      throw new CountEmptyError(ERROR_MESSAGES.COUNT_EMPTY);
     return false;
   }
 

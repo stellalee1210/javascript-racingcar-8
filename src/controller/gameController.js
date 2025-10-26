@@ -21,14 +21,14 @@ export const playGame = async () => {
 
     const validator = new Validator();
     if (
-      !validator.isEmpty(carInput, "car") &&
+      !validator.isCarInputEmpty(carInput) &&
       !validator.isSinglePlay(carInput)
     ) {
       carNames = parseInputToArray(carInput);
     }
 
     if (
-      !validator.isEmpty(countInput, "count") &&
+      !validator.isCountEmpty(countInput) &&
       validator.isCountNumber(countInput)
     ) {
       //게임시작 호출
@@ -36,7 +36,7 @@ export const playGame = async () => {
     }
   } catch (error) {
     if (error instanceof AppError) throw Error(error.message);
-    throw new UnknownError(ERROR_MESSAGES.UNKNOWN);
+    throw UnknownError(ERROR_MESSAGES.UNKNOWN);
   }
 };
 
