@@ -1,4 +1,7 @@
 # README.md
+[Notion : 빌딩 과정 정리 문서](https://www.notion.so/29449092ab7480e8a9bfc3a71c9be9a2?source=copy_link) 
+
+[Velog : 미션 풀이 회고](https://velog.io/@camellia/%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BD%94%EC%8A%A4-8%EA%B8%B0-%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-2%EC%A3%BC%EC%B0%A8-%EB%AF%B8%EC%85%98-%ED%9A%8C%EA%B3%A0-vxtpac6i)
 
 ## 자동차 경주
 
