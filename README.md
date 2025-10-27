@@ -9,10 +9,10 @@
 ### Controller
 
 - [x] gameController: 게임 진행하는 메인 파일
-- [ ] startGame : 게임 시작
-  - [ ] initializeGame() : 자동차 이름 별로 Car class 선언
-  - [ ] printWinner() : game class에서 getWinner을 통해 우승자 정보를 받아서 view/printResult로 넘김
-  - [ ] Game class 선언하여 해당 게임의 자동차 이름 저장
+- [x] startGame : 게임 시작
+  - [x] initializeGame() : 자동차 이름 별로 Car class 선언
+  - [x] printWinner() : game class에서 getWinner을 통해 우승자 정보를 받아서 view/printResult로 넘김
+  - [x] Game class 선언하여 해당 게임의 자동차 이름 저장
 
 ### View
 
@@ -23,36 +23,36 @@
 
 ### Utils
 
-- [ ] parser : 입력한 자동차 이름을 `,` 기준으로 구분
+- [x] parser : 입력한 자동차 이름을 `,` 기준으로 구분
 - [x] validator : 유효한 값인지 검증
   - [x] isEmpty() : 입력된 문자열 공백 확인
-  - [ ] isCarNameValid() : 입력된 자동차 이름이 유효한지 true/false 반환
-    - [ ] isCarNameUnderLimit() : 자동차 이름이 5글자 이내인지 확인
-  - [ ] isCountNumber() : 입력된 횟수가 숫자인지 검증
+  - [x] isSinglePlay() : 입력된 자동차가 한 대인지 확인
+  - [x] isCarNameUnderLimit() : 자동차 이름이 5글자 이내인지 확인
+  - [x] isCountNumber() : 입력된 횟수가 숫자인지 검증
 
 ### Constants
 
-- [ ] contants : 상수 저장
-  - [ ] Error Message
-    - [ ] [ERROR] 자동차 이름이 입력되지 않았습니다.
-    - [ ] [ERROR] 자동차 이름이 중간에 비어있습니다.
-    - [ ] [ERROR] 자동차 이름의 길이를 줄여주세요. (5글자 이내)
-    - [ ] [ERROR] 자동차 이름 구분자가 잘못 들어가있습니다. ( 자동차 이름 구분자 ‘,’ )
-    - [ ] [ERROR] 입력된 게임 진행 횟수가 올바르지 않습니다. 숫자만 입력해주세요
+- [x] contants : 상수 저장
+  - [x] Error Message
+    - [x] [ERROR] 자동차 이름이 입력되지 않았습니다.
+    - [x] [ERROR] 자동차 이름이 중간에 비어있습니다.
+    - [x] [ERROR] 자동차 이름의 길이를 줄여주세요. (5글자 이내)
+    - [x] [ERROR] 자동차 이름 구분자가 잘못 들어가있습니다. ( 자동차 이름 구분자 ‘,’ )
+    - [x] [ERROR] 입력된 게임 진행 횟수가 올바르지 않습니다. 숫자만 입력해주세요
 
 ### Models
 
-- [ ] class Car
-  - [ ] carName: 자동차 이름
-  - [ ] moves: 이동 횟수
-  - [ ] getMoveCount : 움직인 횟수 리턴
-  - [ ] addMove: 움직인 횟수 +1
-- [ ] class Game
-  - [ ] carList: 자동차 이름 배열
-  - [ ] winner: 게임 우승자 이름
-  - [ ] makeMove: 랜덤으로 숫자 뽑는 로직을 통해 전진 여부 결정
-  - [ ] saveMove: Car class에 전진한 차 정보 저장
-  - [ ] getWinner: 우승자 이름 반환
+- [x] class Car
+  - [x] carName: 자동차 이름
+  - [x] moves: 이동 횟수
+  - [x] getMoveCount : 움직인 횟수 리턴
+  - [x] addMove: 움직인 횟수 +1
+- [x] class Game
+  - [x] carList: 자동차 이름 배열
+  - [x] winner: 게임 우승자 이름
+  - [x] makeMove: 랜덤으로 숫자 뽑는 로직을 통해 전진 여부 결정
+  - [x] saveMove: Car class에 전진한 차 정보 저장
+  - [x] getWinner: 우승자 이름 반환
 
 ### 주의할 점
 
@@ -71,12 +71,12 @@
 
 ### GameError
 
-- [ ] 해당 class를 상속하는 여러 종류의 Error 생성
-  - [ ] CarNameEmptyError
-  - [ ] CarNameLengthError
-  - [ ] DelimiterError
-  - [ ] CountError
-  - [ ] CountEmptryError
+- [x] 해당 class를 상속하는 여러 종류의 Error 생성
+  - [x] CarNameEmptyError
+  - [x] CarNameLengthError
+  - [x] DelimiterError
+  - [x] CountError
+  - [x] CountEmptryError
 
 ## 프로젝트 구조
 
@@ -117,8 +117,8 @@
 
 ApplicationTest : 통합 테스트
 
-- [ ] 기본 테스트 1: 정상 작동
-- [ ] 기본 테스트 2: 횟수 미입력 오류
+- [x] 기본 테스트 1: 정상 작동
+- [x] 기본 테스트 2: 횟수 미입력 오류
 - [ ] 추가 테스트 1 : 자동차 이름 중간에 빈 이름 입력 → 오류 출력 : `[ERROR] 자동차 이름이 중간에 비어있습니다`
 - [ ] 추가 테스트 2 : 자동차 이름 구분자(,) 아닌 기호 입력 → 오류 출력 : `[ERROR] 자동차 이름 구분자가 잘못 들어가있습니다.`
 - [ ] 추가 테스트 3 : 게임 진행 횟수에 문자 입력 → 오류 출력 : `[ERROR] 입력된 게임 진행 횟수가 올바르지 않습니다. 숫자만 입력해주세요`

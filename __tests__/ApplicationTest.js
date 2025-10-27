@@ -58,4 +58,52 @@ describe("자동차 경주", () => {
     // then
     await expect(app.run()).rejects.toThrow(ERROR_MESSAGES.COUNT_EMPTY);
   });
+
+  test("자동차 이름 입력 값 중간에 있는 공백", async () => {
+    // given
+    const inputs = ["lulu, ani,  , toto", "3"];
+    mockQuestions(inputs);
+
+    // when
+    const app = new App();
+
+    // then
+    await expect(app.run()).rejects.toThrow(ERROR_MESSAGES.CAR_NAME_EMPTY);
+  });
+
+  test("자동차 이름 입력 값에 구분자로 쉼표 아닌 문자", async () => {
+    // given
+    const inputs = ["ana; parah; genji", "8"];
+    mockQuestions(inputs);
+
+    // when
+    const app = new App();
+
+    // then
+    await expect(app.run()).rejects.toThrow(ERROR_MESSAGES.DELIMITER);
+  });
+
+  test("게임 진행 횟수에 숫자 대신 문자", async () => {
+    // given
+    const inputs = ["diva, ana, lemon, hoho", "d"];
+    mockQuestions(inputs);
+
+    // when
+    const app = new App();
+
+    // then
+    await expect(app.run()).rejects.toThrow(ERROR_MESSAGES.COUNT);
+  });
+
+  test("게임 진행 횟수에 숫자 대신 문자", async () => {
+    // given
+    const inputs = ["aoisfnoaisb", "4"];
+    mockQuestions(inputs);
+
+    // when
+    const app = new App();
+
+    // then
+    await expect(app.run()).rejects.toThrow(ERROR_MESSAGES.COUNT);
+  });
 });
