@@ -17,26 +17,22 @@ export const playGame = async () => {
   try {
     const carInput = await getCarInput();
     const countInput = await getCountInput();
-    let carNames = carInput;
 
     const validator = new Validator();
-    if (
-      !validator.isCarInputEmpty(carInput) &&
-      !validator.isSinglePlay(carInput)
-    ) {
-      carNames = parseInputToArray(carInput);
+    validator.isCarInputEmpty(carInput);
+    validator.isCountEmpty(countInput);
+
+    if (validator.isMultiPlay(carInput)) {
+      const parsedInput = parseInputToArray(carInput);
+      startGame(parsedInput, countInput);
+    } else {
+      startGame(carInput, countInput);
     }
 
-    if (
-      !validator.isCountEmpty(countInput) &&
-      validator.isCountNumber(countInput)
-    ) {
-      //게임시작 호출
-      startGame(carNames, countInput);
-    }
+    //게임시작 호출
   } catch (error) {
-    if (error instanceof AppError) throw Error(error.message);
-    throw UnknownError(ERROR_MESSAGES.UNKNOWN);
+    if (error instanceof AppError) throw new Error(error.message);
+    throw new UnknownError(ERROR_MESSAGES.UNKNOWN);
   }
 };
 
@@ -56,9 +52,9 @@ const startGame = (carList, count) => {
 
 const initializeCars = (carList) => {
   const cars = [];
-  carList.forEach((carName) => {
+  for (const carName of carList) {
     const car = new Car(carName);
     cars.push(car);
-  });
+  }
   return cars;
 };

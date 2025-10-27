@@ -80,7 +80,7 @@ describe("자동차 경주", () => {
     const app = new App();
 
     // then
-    await expect(app.run()).rejects.toThrow(ERROR_MESSAGES.DELIMITER);
+    await expect(app.run()).rejects.toThrow(ERROR_MESSAGES.CAR_NAME_LENGTH);
   });
 
   test("게임 진행 횟수에 숫자 대신 문자", async () => {
@@ -95,7 +95,7 @@ describe("자동차 경주", () => {
     await expect(app.run()).rejects.toThrow(ERROR_MESSAGES.COUNT);
   });
 
-  test("게임 진행 횟수에 숫자 대신 문자", async () => {
+  test("5글자가 넘어가는 자동차 입력 값", async () => {
     // given
     const inputs = ["aoisfnoaisb", "4"];
     mockQuestions(inputs);
@@ -104,6 +104,6 @@ describe("자동차 경주", () => {
     const app = new App();
 
     // then
-    await expect(app.run()).rejects.toThrow(ERROR_MESSAGES.COUNT);
+    await expect(app.run()).rejects.toThrow(ERROR_MESSAGES.CAR_NAME_LENGTH);
   });
 });
